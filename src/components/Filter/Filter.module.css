@@ -1,0 +1,34 @@
+.filterContainer {
+  position: fixed;
+  height: 100rem;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.filter {
+  position: relative;
+  width: 90%;
+}
+
+.search {
+  color: #AFAEAE;
+  width: 100%;
+  border: none;
+  outline: none;
+  height: 60rem;
+  background-color: #F1F1F1;
+  border-radius: 40rem;
+  padding-left: 80rem;
+}
+
+.icon {
+  position: absolute;
+  color: #AFAEAE;
+  font-size: 36rem;
+  left: 14rem;
+  top: 5rem;
+}

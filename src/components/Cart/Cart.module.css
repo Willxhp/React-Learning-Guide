@@ -1,0 +1,64 @@
+.cart {
+  position: fixed;
+  background-color: #393939;
+  bottom: 20rem;
+  height: 80rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  width: 700rem;
+  border-radius: 40rem;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 100rem;
+}
+
+.cartBag {
+  width: 80rem;
+  position: absolute;
+  bottom: -10rem;
+  left: 0;
+}
+
+.cartBag img {
+  width: 100%;
+}
+
+.icon {
+  position: absolute;
+  background-color: red;
+  width: 38rem;
+  height: 38rem;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 38rem;
+  color: #fff;
+  right: -20rem;
+}
+
+.price, .noGoods {
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
+  font-size: 36rem;
+}
+
+.price::before {
+  content: '￥';
+  font-size: 30rem;
+}
+
+.noGoods {
+  color: #A9A9A9;
+  font-size: 38rem;
+}
+
+.priceButton {
+  height: 100%;
+  width: 200rem;
+  border: none;
+  background-color: #F7BB14;
+  border-radius: 40rem;
+  font-size: 36rem;
+}

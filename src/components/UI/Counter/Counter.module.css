@@ -1,0 +1,25 @@
+.counter {
+  display: flex;
+}
+
+.sub,
+.add {
+  border: none;
+  width: 40rem;
+  height: 40rem;
+  border-radius: 50%;
+  background-color: #F9BC14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sub {
+  background-color: #fff;
+  border: 1px solid #000;
+}
+
+.amount {
+  margin: 0 20rem;
+  font-size: 14px;
+}
