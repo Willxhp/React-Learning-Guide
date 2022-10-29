@@ -9,7 +9,7 @@ export default function Meal(props) {
       </div>
       <div className={classes.right}>
         <h2 className={classes.title}>{props.meal.title}</h2>
-        <p className={classes.desc}>{props.meal.desc}</p>
+        { props.noDesc ? null : <p className={classes.desc}>{props.meal.desc}</p> }
         <div className={classes.priceWrapper}>
           <div className={classes.price}>{props.meal.price}</div>
           <Counter meal={props.meal}/>

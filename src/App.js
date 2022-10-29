@@ -67,10 +67,9 @@ const MEALS_DATA = [
   // 改变购物车中的数据
   const changeItem = (id, isAdd) => {
     const newCartData = {...cartData}
-    let item
+    let item = newCartData.items.find(item => item.id === id )
     if (isAdd) {
-      if(newCartData.items.some(item => item.id === id)) {
-        item = newCartData.items.find(item => item.id === id )
+      if(item) {
         item.amount++
       } else {
         item = {...MEALS_DATA.find(item => item.id === id ), amount: 1}
@@ -79,23 +78,35 @@ const MEALS_DATA = [
       newCartData.totalAmount++
       newCartData.totalPrice += item.price
     } else {
-      item = newCartData.items.find(item => item.id === id )
       item.amount--
+      if (item.amount === 0) {
+        newCartData.items.splice(newCartData.items.indexOf(item), 1)
+      }
       newCartData.totalAmount--
       newCartData.totalPrice -= item.price
     }
     setCartData(newCartData)
   }
 
+  // 搜索展示商品
   const filterData = (keyword) => {
     const filterMealsData = MEALS_DATA.filter(item => item.title.includes(keyword))
     // console.log(filterMealsData)
     setMealsData(filterMealsData)
   }
 
+  // 清空购物车数据
+  const clearData = () => {
+    const newCartData = {...cartData}
+    newCartData.items = []
+    newCartData.totalAmount = 0
+    newCartData.totalPrice = 0
+    setCartData(newCartData)
+  }
+
   return (
     <div>
-      <CartContext.Provider value={{...cartData, changeItem}}>
+      <CartContext.Provider value={{...cartData, changeItem, clearData}}>
         <Filter onFilter={filterData}/>
         <Meals mealsData={mealsData}/>
         <Cart/>

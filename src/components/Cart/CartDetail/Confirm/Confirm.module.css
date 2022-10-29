@@ -1,0 +1,40 @@
+.confirmBox {
+  z-index: 4;
+}
+
+.confirm {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 700rem;
+  height: 400rem;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.title {
+  margin: 0;
+  font-size: 50rem;
+  font-weight: 400;
+}
+
+.cancelButton, .confirmButton {
+  width: 240rem;
+  height: 100rem;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 50rem;
+  font-size: 24px;
+}
+
+.confirmButton {
+  margin-left: 30rem;
+  background-color: #F7BB14;
+}

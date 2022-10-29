@@ -1,4 +1,4 @@
-.cart {
+.payment {
   position: fixed;
   background-color: #393939;
   bottom: 30rem;
@@ -11,34 +11,11 @@
   border-radius: 40rem;
   justify-content: space-between;
   align-items: center;
-  padding-left: 100rem;
+  padding-left: 50rem;
   z-index: 3;
 }
 
-.cartBag {
-  width: 80rem;
-  position: absolute;
-  bottom: -10rem;
-  left: 0;
-}
-
-.cartBag img {
-  width: 100%;
-}
-
-.icon {
-  position: absolute;
-  background-color: red;
-  width: 38rem;
-  height: 38rem;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 38rem;
-  color: #fff;
-  right: -20rem;
-}
-
-.price, .noGoods {
+.price {
   margin: 0;
   color: #fff;
   font-weight: 700;
@@ -46,16 +23,11 @@
 }
 
 .price::before {
-  content: '￥';
+  content: '合计￥';
   font-size: 30rem;
 }
 
-.noGoods {
-  color: #A9A9A9;
-  font-size: 38rem;
-}
-
-.priceButton {
+.payButton {
   height: 100%;
   width: 200rem;
   border: none;
