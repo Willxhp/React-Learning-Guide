@@ -2,6 +2,8 @@
   position: absolute;
   top: 100rem;
   bottom: 0;
+  left: 0;
+  right: 0;
   overflow: auto;
   padding-bottom: 130rem;
 }
