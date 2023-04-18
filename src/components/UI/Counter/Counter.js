@@ -13,11 +13,11 @@ export default function Counter(props) {
   // 3. 引入待使用的icon图标，作为FontAwesomeIcon组件的icon参数传入
   const cartCtx = useContext(CartContext)
   const subItem = () => {
-    cartCtx.changeItem(props.meal.id, false)
+    cartCtx.cartDispatch({type: 'SUB', id: props.meal.id})
   }
 
   const addItem = () => {
-    cartCtx.changeItem(props.meal.id, true)
+    cartCtx.cartDispatch({type: 'ADD', id: props.meal.id})
   }
 
   // 购物车当前商品的信息

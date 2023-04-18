@@ -7,7 +7,7 @@ export default function Confirm(props) {
   const cartCtx = useContext(CartContext) 
 
   const confirmHandler = () => {
-    cartCtx.clearData()
+    cartCtx.cartDispatch({type: 'CLEAR'})
     props.onClose()
   }
 
