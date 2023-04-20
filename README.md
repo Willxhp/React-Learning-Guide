@@ -1,5 +1,7 @@
 ## React18 学习指南
 
+本指南中的代码为多个使用react制作的Demo，包含了React 18的核心用法以及redux、reduxRouter等周边生态的使用方法。
+
 ### 一、基础概念
 
 #### 1. 创建React项目
@@ -537,7 +539,7 @@ React提供的钩子函数只能运行在函数组件或自定义钩子函数当
 
 原生的redux并不是React所独有的，可以用于任何框架，甚至可以在网页中引入直接使用。redux的三个核心概念为Store、Action Creators和Reducers。其中Store中保存着所有的状态，Reducers用来实现对Store中状态的修改，而Action Creators用于创建一个action，通过向store派发action（普通的js对象，包含要对数据进行的操作信息），可以通知Reducers对store进行状态的修改，以下为redux原理图。原生redux的使用与React 18中的`useReducer()`非常相似。
 
-![redux原理图](D:\Front_End\React\react全家桶资料\react全家桶资料\02_原理图\redux原理图.png)
+![redux原理图](.\public\reactImg\redux原理图.png)
 
 ```powershell
 npm i redux # 安装redux
@@ -610,7 +612,7 @@ store.subscribe(() => {
 
 为了在React项目中更加方便的使用redux，可以在redux的基础上搭配使用react-redux。在react-redux中，将组件分为UI组件和容器组件两种：UI组件不能使用任何redux的api，只负责页面的呈现、交互等；容器组件负责和redux通信，将结果交给UI组件。在最新版本的react-redux中弱化了容器组件的概念，使用两个钩子函数实现了容器组件的功能，新版本的更加配合React 18版本的使用。react-redux的模型图见下图。react-redux设计的核心思想就是将redux的业务逻辑从组件中抽离出来，实现业务的解耦。
 
-![react-redux模型图](D:\Front_End\React\react全家桶资料\react全家桶资料\02_原理图\react-redux模型图.png)
+![react-redux模型图](.\public\reactImg\react-redux模型图.png)
 
 ```powershell
 npm i redux react-redux -S
@@ -893,3 +895,15 @@ export default function MyComponent() {
 }
 ```
 
+#### 4. RTK Query (RTKQ)
+
+RTK不仅解决了state的问题，同时，它还为我们提供了RTK Query用来帮助我们处理数据加载的问题。RTK Query是一个强大的数据获取和缓存工具。在它的帮助下，Web应用中的加载变得十分简单，它使我们不再需要自己编写获取数据和缓存数据的逻辑。
+
+Web应用中加载数据时需要处理的问题：
+
+1. 根据不同的加载状态显示不同UI组件
+2. 减少对相同数据重复发送请求
+3. 使用乐观更新，提升用户体验
+4. 在用户与UI交互时，管理缓存的生命周期
+
+这些问题，RTKQ都可以帮助我们处理。首先，可以直接通过RTKQ向服务器发送请求加载数据，并且RTKQ会自动对数据进行缓存，避免重复发送不必要的请求。其次，RTKQ在发送请求时会根据请求不同的状态返回不同的值，我们可以通过这些值来监视请求发送的过程并随时中止。

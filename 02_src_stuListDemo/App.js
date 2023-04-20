@@ -11,11 +11,13 @@ function App() {
 
   // 发送请求获取数据
   useEffect(() => {
-    fetchData()
+    fetchData({
+      url: 'students'
+    })
   }, [fetchData])
 
   return (
-    <StudentContext.Provider value={{fetchData}}>
+    <StudentContext.Provider value={{fetchData: () => {fetchData({url: 'students'})}}}>
       <div className='student-table'>
         {!isLoading && !isError && <StudentList data={studentData}/>}
         {isLoading && <p>正在加载中...</p>}
