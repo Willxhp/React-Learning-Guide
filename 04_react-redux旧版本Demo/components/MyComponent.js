@@ -1,14 +1,11 @@
 import { setNameActon, setAgeAction } from '../store/actions/stuAction'
 import { setSchoolNameActon, setAddressAction } from '../store/actions/schoolAction'
 import { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { connect } from 'react-redux'
 
-export default function MyComponent() {
+function MyComponent(props) {
 
-  // 获取store中存储的状态
-  const {student, school} = useSelector(state => state)
-  // 获取dispatch方法
-  const dispatch = useDispatch()
+  const {student, school} = props
   
   // 处理信息的表单
   const [formData, setFormData] = useState({
@@ -35,8 +32,8 @@ export default function MyComponent() {
         年龄：<input value={formData.age} onChange={changeFormHandler('age')}/>
       </p>
       <div>
-      	<button onClick={() => {dispatch(setNameActon(formData.name))}}>修改学生姓名</button>
-          <button onClick={() => {dispatch(setAgeAction(+formData.age))}}>修改学生年龄</button>
+      	<button onClick={() => {props.setName(formData.name)}}>修改学生姓名</button>
+          <button onClick={() => {props.setAge(+formData.age)}}>修改学生年龄</button>
       </div>
       <hr/>
       <p>{school.name} - {school.address}</p>
@@ -45,9 +42,19 @@ export default function MyComponent() {
         地址：<input value={formData.address} onChange={changeFormHandler('address')}/>
       </p>
       <div>
-      	<button onClick={() => {dispatch(setSchoolNameActon(formData.schoolName))}}>修改学校名称</button>
-        <button onClick={() => {dispatch(setAddressAction(formData.address))}}>修改学校地址</button>
+      	<button onClick={() => {props.setSchoolName(formData.schoolName)}}>修改学校名称</button>
+        <button onClick={() => {props.setAddress(formData.address)}}>修改学校地址</button>
       </div>
     </div>
   )
 }
+
+export default connect(
+  state => ({...state}),
+  {
+    setName: setNameActon,
+    setAge: setAgeAction,
+    setSchoolName: setSchoolNameActon,
+    setAddress: setAddressAction
+  }
+)(MyComponent)
