@@ -1,6 +1,6 @@
 ## React18 学习指南
 
-本指南中的代码为多个使用react制作的Demo，包含了React 18的核心用法以及redux、reduxRouter等周边生态的使用方法。
+本指南中的代码为多个使用react制作的Demo，包含了React 18的核心用法以及redux、react-router等生态的使用方法。
 
 ### 一、基础概念
 
